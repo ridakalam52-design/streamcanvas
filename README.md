@@ -2,6 +2,14 @@
 
 StreamCanvas turns Twitch chat into a shared 64 × 36 pixel mural. Chat paints live, an OBS-ready overlay shows the mural and community activity, and a streamer dashboard controls the session and replays it as WebM.
 
+**Demo video:** https://youtu.be/DmFxibrsKiI
+
+| Real Twitch chat (#ridakalam) | Overlay: chat finished the heart template |
+|---|---|
+| ![Twitch chat](docs/twitch-chat.jpg) | ![Overlay](docs/overlay-heart.jpg) |
+
+![Streamer dashboard](docs/dashboard.jpg)
+
 ## Features
 
 - Named palette and nearest-color hex snapping, coordinates, subscriber/VIP/mod line tool, subscriber cooldown bonus, cheer bursts, and moderator undo and bans.
@@ -83,4 +91,12 @@ npm run demo
 
 ## Built with Codex
 
-Built with Codex for the TwitchCon hackathon brief. The project uses Node.js, Express, `ws`, native browser Canvas APIs, and Node's built-in test runner. MIT licensed.
+Built end to end with the OpenAI Codex CLI for the Codex x TwitchCon Hackathon. The full brief Codex worked from is in [BRIEF.md](BRIEF.md).
+
+- **Pass 1:** from one brief, Codex wrote the server, Twitch IRC client, EventSub client, canvas state, overlay, dashboard and tests, then ran the tests and a demo boot check until both passed.
+- **Pass 2:** in the same session, Codex reformatted the code, made the overlay broadcast-ready, built the dashboard and timelapse, added mural templates, and grew the suite to 20 tests.
+- **Pass 3:** a live test on twitch.tv/ridakalam showed the broadcaster couldn't use `!line`. Codex fixed broadcaster permissions, added rejection logging, and brought the suite to 23 passing tests.
+
+Main Codex session ID: `01a18063-fa92-7062-89dc-1524b2b090a3`.
+
+The project uses The project uses Node.js, Express, `ws`, native browser Canvas APIs, and Node's built-in test runner. MIT licensed.
