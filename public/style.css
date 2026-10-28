@@ -91,7 +91,8 @@ h3 {
   background: transparent;
 }
 .overlay-card {
-  width: min(1780px, 96vw);
+  /* Fit the 16:9 mural plus header/footer chrome inside the viewport height. */
+  width: min(1780px, 96vw, calc((94vh - 270px) * 16 / 9 + 120px));
   padding: clamp(18px, 2vw, 36px);
   border: 1px solid rgba(230, 228, 255, 0.14);
   border-radius: 25px;
@@ -541,7 +542,7 @@ progress {
     display: grid;
   }
   .overlay-card {
-    width: 98vw;
+    width: min(98vw, calc((96vh - 230px) * 16 / 9 + 70px));
     padding: 14px;
   }
   .battle-row {
