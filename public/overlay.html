@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StreamCanvas Overlay</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="overlay">
+    <main class="overlay-card">
+      <header class="overlay-header">
+        <div>
+          <span class="eyebrow">LIVE COMMUNITY MURAL</span>
+          <h1>Stream<span>Canvas</span></h1>
+        </div>
+        <div class="progress-card" id="progress-card" hidden>
+          <div class="progress-copy">
+            <span>COMMUNITY TEMPLATE</span
+            ><strong id="progress-label">0%</strong>
+          </div>
+          <div class="progress-track"><span id="progress-fill"></span></div>
+        </div>
+      </header>
+      <section class="mural-shell">
+        <div class="axis-corner">Y / X</div>
+        <div class="axis-labels axis-top" id="axis-top"></div>
+        <div class="axis-labels axis-left" id="axis-left"></div>
+        <div class="mural-frame">
+          <canvas
+            id="mural"
+            width="1280"
+            height="720"
+            aria-label="64 by 36 pixel community mural"
+          ></canvas>
+          <div id="raid-banner" class="raid-banner" aria-live="polite"></div>
+        </div>
+      </section>
+      <div class="battle-row">
+        <span class="team-name red-name">RED <b id="red-pct">0%</b></span>
+        <div class="battle-track">
+          <span id="red-territory"></span><span id="blue-territory"></span>
+        </div>
+        <span class="team-name blue-name"><b id="blue-pct">0%</b> BLUE</span>
+      </div>
+      <footer class="overlay-footer">
+        <div class="painter-ticker">
+          <span class="ticker-label">LATEST PAINTERS</span>
+          <div id="ticker-artists"></div>
+        </div>
+        <span class="paint-hint">TYPE <b>!paint x y color</b> TO JOIN IN</span>
+      </footer>
+    </main>
+    <script src="/overlay.js"></script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StreamCanvas Dashboard</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="dashboard">
+    <header class="dashboard-header">
+      <div>
+        <span class="eyebrow">STREAMER CONTROL ROOM</span>
+        <h1>Stream<span>Canvas</span></h1>
+      </div>
+      <a class="button" href="/overlay" target="_blank" rel="noreferrer"
+        >Open stream overlay ↗</a
+      >
+    </header>
+    <main class="dashboard-layout">
+      <section class="panel canvas-panel">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">THE LIVE MURAL</span>
+            <h2>Community canvas</h2>
+          </div>
+          <span class="live-dot">LIVE</span>
+        </div>
+        <canvas
+          id="dashboard-canvas"
+          width="1280"
+          height="720"
+          aria-label="Live community mural"
+        ></canvas>
+        <div class="stat-grid">
+          <div><strong id="pixels-stat">0</strong><span>PIXELS</span></div>
+          <div><strong id="painters-stat">0</strong><span>PAINTERS</span></div>
+          <div>
+            <strong id="teams-stat">0 : 0</strong><span>TEAM TERRITORY</span>
+          </div>
+        </div>
+        <div class="artists-block">
+          <div class="section-heading compact">
+            <h3>Top five artists</h3>
+            <span>BY CONTRIBUTIONS</span>
+          </div>
+          <ol id="artists-list"></ol>
+        </div>
+      </section>
+      <aside class="panel controls-panel">
+        <span class="eyebrow">SESSION SETTINGS</span>
+        <h2>Canvas controls</h2>
+        <label class="control-row" for="cooldown"
+          ><span>Paint cooldown</span
+          ><span><b id="cooldown-value">10</b> sec</span></label
+        >
+        <input id="cooldown" type="range" min="0" max="30" value="10" />
+        <label class="toggle-row" for="teams-toggle"
+          ><span
+            ><b>Team battle</b><small>Show red vs blue territory</small></span
+          ><input id="teams-toggle" type="checkbox" checked
+        /></label>
+        <label class="toggle-row" for="paused-toggle"
+          ><span
+            ><b>Pause painting</b><small>Freeze chat contributions</small></span
+          ><input id="paused-toggle" type="checkbox"
+        /></label>
+        <button id="save-settings" class="button full">Save settings</button>
+        <div class="action-row">
+          <button id="snapshot-button" class="button secondary">
+            PNG snapshot</button
+          ><button id="clear-button" class="button danger">Clear mural</button>
+        </div>
+        <section class="template-controls">
+          <span class="eyebrow">GHOST GUIDE</span>
+          <h2>Mural template</h2>
+          <p>
+            Give chat a faint guide to colour in. Transparent PNGs work best.
+          </p>
+          <div class="action-row">
+            <button id="heart-template" class="button secondary">
+              Load heart</button
+            ><button id="remove-template" class="button secondary">
+              Remove guide
+            </button>
+          </div>
+          <label class="upload-button button secondary" for="template-upload"
+            >Upload logo or guide</label
+          >
+          <input
+            id="template-upload"
+            type="file"
+            accept="image/png,image/webp,image/jpeg"
+            hidden
+          />
+          <small id="template-status" class="template-status"
+            >No guide loaded</small
+          >
+        </section>
+        <section class="timelapse-controls">
+          <span class="eyebrow">SESSION REPLAY</span>
+          <h2>Timelapse player</h2>
+          <div class="player-row">
+            <button id="replay-button" class="button secondary">
+              ▶ Replay mural</button
+            ><button id="webm-button" class="button">Export WebM</button>
+          </div>
+          <progress id="replay-progress" max="1" value="0"></progress>
+          <small id="replay-status" class="template-status"
+            >Ready when you are</small
+          >
+        </section>
+      </aside>
+    </main>
+    <script src="/dashboard.js"></script>
+  </body>
+</html>

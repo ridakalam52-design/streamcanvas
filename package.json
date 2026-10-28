@@ -1,0 +1,23 @@
+{
+  "name": "streamcanvas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A live Twitch chat pixel mural for stream overlays",
+  "scripts": {
+    "start": "node src/server.js",
+    "demo": "DEMO=1 node src/server.js",
+    "test": "node --test",
+    "format": "prettier --write \"src/**/*.js\" \"src/*.js\" \"public/*.js\" \"test/*.js\" \"public/*.html\" \"public/*.css\""
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.10"
+  }
+}
